@@ -16,15 +16,12 @@ const getFullRequestUrl = (url) => {
  * @param url 请求地址
  */
 export const get = (url) => {
+    let fullRequestUrl = getFullRequestUrl(url);
     return new Promise((resolve, reject) => {
         try {
             $.ajax({
                 type: "get",
-                url: getFullRequestUrl(url),
-                dataType: "json",
-                // jsonp: "cb",
-                // jsonpCallback: "showData",
-                crossDomain: true,
+                url: fullRequestUrl,
                 success: function (res) {
                     if (STATUS.SUCCESS.code === res.code) {
                         resolve(res);
@@ -46,13 +43,14 @@ export const get = (url) => {
  * @param jsonData 请求体
  */
 export const post = (url, jsonData) => {
+    let fullRequestUrl = getFullRequestUrl(url);
     return new Promise((resolve, reject) => {
         try {
             $.ajax({
                 type: "get",
-                url: getFullRequestUrl(url),
-                dataType: "jsonp",
-                jsonpCallback: "cb", /*设置一个回调函数，名字随便取，和下面的函数里的名字相同就行*/
+                url: fullRequestUrl,
+                contentType: "application/json; charset=utf-8",
+                data: jsonData,
                 success: function (res) {
                     if (STATUS.SUCCESS.code === res.code) {
                         resolve(res);

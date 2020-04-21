@@ -2,7 +2,7 @@ import {findPages} from '../common/api.js';
 
 $(function () {
 
-    findPages("/index/say")
+    findPages("/controller/index/say")
         .then(res => {
             debugger;
             Alert("then" + res);

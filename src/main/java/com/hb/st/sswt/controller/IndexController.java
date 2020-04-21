@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2020/4/20 15:17
  */
 @RestController
-@RequestMapping("/index")
+@RequestMapping("/controller/index")
 public class IndexController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(IndexController.class);

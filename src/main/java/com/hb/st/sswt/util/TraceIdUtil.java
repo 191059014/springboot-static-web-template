@@ -1,5 +1,7 @@
 package com.hb.st.sswt.util;
 
+import java.util.UUID;
+
 /**
  * trace_id上下文
  *
@@ -36,6 +38,16 @@ public class TraceIdUtil {
      */
     public static void removeTraceId() {
         TRACE_ID.remove();
+    }
+
+    /**
+     * 生成新的traceId
+     *
+     * @return 字符串
+     */
+    public static String generateTraceId() {
+        String uuid = UUID.randomUUID().toString();
+        return uuid.replaceAll("-", "");
     }
 
 }

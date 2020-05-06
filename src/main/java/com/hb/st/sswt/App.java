@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.core.env.ConfigurableEnvironment;
 
-@ImportResource({"classpath*: config/service-web-context.xml"})
+@ImportResource({"classpath*:config/service-*-context.xml"})
 @SpringBootApplication
 public class App {
 

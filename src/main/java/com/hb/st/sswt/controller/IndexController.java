@@ -1,10 +1,10 @@
 package com.hb.st.sswt.controller;
 
-import com.hb.st.sswt.common.Logger;
-import com.hb.st.sswt.common.LoggerFactory;
-import com.hb.st.sswt.common.ResponseData;
 import com.hb.st.sswt.enums.ResponseEnum;
-import com.hb.st.sswt.util.ResponseUtils;
+import com.hb.unic.base.common.ResponseData;
+import com.hb.unic.base.util.ResponseUtils;
+import com.hb.unic.logger.Logger;
+import com.hb.unic.logger.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

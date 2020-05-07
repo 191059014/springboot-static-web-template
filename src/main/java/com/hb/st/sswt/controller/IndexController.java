@@ -26,14 +26,14 @@ public class IndexController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
 
-//    @Value("${hb.name}")
-//    private String name;
+    @Value("${hb.name}")
+    private String name;
 
-    @Resource(name = "propertySourcesPlaceholderConfigurer")
-    private PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer;
+    @Value("${unicBase.projectName}")
+    private String unicBaseProjectName;
 
-    @Resource(name = "yaml")
-    private PropertySourcesPlaceholderConfigurer yaml;
+    @Value("${unicLogger.projectName}")
+    private String unicLoggerProjectName;
 
     @GetMapping("/say")
     public ResponseData<String> say() {

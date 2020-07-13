@@ -18,22 +18,14 @@ const getFullRequestUrl = (url) => {
 export const get = (url) => {
     let fullRequestUrl = getFullRequestUrl(url);
     return new Promise((resolve, reject) => {
-        try {
-            $.ajax({
-                type: "get",
-                url: fullRequestUrl,
-                success: function (res) {
-                    if (STATUS.SUCCESS.code === res.code) {
-                        resolve(res);
-                    } else {
-                        reject(res);
-                    }
-                }
-            });
-        } catch (e) {
-            console.error(e);
-            Alert(STATUS.ERROR.msg);
-        }
+        $.ajax({
+            type: "get",
+            url: fullRequestUrl,
+            success: function (res) {
+                resolve(res);
+            }
+            // 此处不加error方法，下面有统一处理
+        });
     });
 };
 
@@ -45,27 +37,16 @@ export const get = (url) => {
 export const post = (url, jsonData) => {
     let fullRequestUrl = getFullRequestUrl(url);
     return new Promise((resolve, reject) => {
-        try {
-            $.ajax({
-                type: "get",
-                url: fullRequestUrl,
-                contentType: "application/json; charset=utf-8",
-                data: jsonData,
-                success: function (res) {
-                    if (STATUS.SUCCESS.code === res.code) {
-                        resolve(res);
-                    } else {
-                        reject(res);
-                    }
-                },
-                error: function (res) {
-                    reject(res);
-                }
-            });
-        } catch (e) {
-            console.error(e);
-            Alert(STATUS.ERROR.msg);
-        }
+        $.ajax({
+            type: "post",
+            url: fullRequestUrl,
+            contentType: "application/json; charset=utf-8",
+            data: jsonData,
+            success: function (res) {
+                resolve(res);
+            }
+            // 此处不加error方法，下面有统一处理
+        });
     });
 };
 
@@ -76,21 +57,37 @@ $.ajaxSetup({
     contentType: "application/json",
     timeout: 6000,
     beforeSend: function (xmlHttpRequest) {
+        debugger;
         // 请求前执行的方法
         console.info("ajaxSetup.beforeSend");
     },
     complete: function (xmlHttpRequest, status) {
+        debugger;
         // 请求完成执行的方法
         console.info("ajaxSetup.complete");
     },
-    success: function (res, xmlHttpRequest, status) {
-        // 请求成功执行的方法
-        console.info("ajaxSetup.success");
-    },
     error: function (xmlHttpRequest, status, error) {
+        console.error("ajaxSetup.error");
         // 请求失败执行的方法
-        console.info("ajaxSetup.error");
-        Alert("ajax请求异常：[" + xmlHttpRequest.status + "][" + error.message + "]");
+        if (xmlHttpRequest.responseJSON) {
+            let statusCode = xmlHttpRequest.responseJSON.status;
+            switch (statusCode) {
+                case 400:
+                    Alert("错误的请求！");
+                    break;
+                case 403:
+                    Alert("无权访问！");
+                    break;
+                case 404:
+                    Alert("请求的资源无效！");
+                    break;
+                case 405:
+                    Alert("请求的参数或格式不正确！");
+                    break;
+                default:
+                    Alert(STATUS.ERROR.msg);
+            }
+        }
     }
 });
 

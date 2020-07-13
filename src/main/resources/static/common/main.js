@@ -5,11 +5,11 @@ window.Alert = (messages, callback) => {
     $(".swt_tip").css({
         "top": "0",
         "left": "0",
-        "height": "50px",
         "text-align": "center",
         "background-color": "yellow",
         "position": "absolute",
         "padding-top": "10px",
+        "padding-bottom": "10px",
         "font-size": "larger",
         "font-weight": "bolder"
     });

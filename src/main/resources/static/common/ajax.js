@@ -1,5 +1,5 @@
 import * as EnvConfig from "../config/env_config.js";
-import {STATUS} from "./constant.js";
+import {STATUS} from "./consts.js";
 
 /**
  * 获取完整请求路径

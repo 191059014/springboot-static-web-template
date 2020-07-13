@@ -9,7 +9,8 @@ package com.hb.st.sswt.enums;
 public enum ResponseEnum {
 
     SUCCESS(10000, "成功"),
-    ERROR(99999, "系统异常，请稍后再试！"),;
+    ERROR(99999, "系统异常，请稍后再试！"),
+    ;
 
     /**
      * 返回码

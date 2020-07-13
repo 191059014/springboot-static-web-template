@@ -9,7 +9,7 @@
 ## 小工具
 - 统一封装ajax请求static/common/ajax.js
 - 统一管理api请求static/common/api.js
-- 统一管理常量static/common/constant.js
+- 统一管理常量static/common/consts.js
 - 公共js文件static/common/main.js
 ## 不同环境，不同配置
 ```

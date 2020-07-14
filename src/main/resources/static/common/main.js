@@ -1,5 +1,6 @@
 //弹出提示效果
 window.Alert = (messages, callback) => {
+    $(".swt_tip").remove();
     let tip = '<div class="swt_tip">' + messages + '</div>';
     $("body").append(tip);
     $(".swt_tip").css({
@@ -20,7 +21,6 @@ window.Alert = (messages, callback) => {
         $(".swt_tip").animate({
             opacity: 0,
         }, 2500, function () {
-            $(".swt_tip").remove();
             callback && callback();
         });
     });

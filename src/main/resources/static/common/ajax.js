@@ -24,7 +24,7 @@ export const get = (url) => {
             success: function (res) {
                 resolve(res);
             }
-            // 此处不加error方法，下面有统一处理
+            // 此处不加error方法，下面ajaxSetup有统一处理
         });
     });
 };
@@ -45,7 +45,7 @@ export const post = (url, jsonData) => {
             success: function (res) {
                 resolve(res);
             }
-            // 此处不加error方法，下面有统一处理
+            // 此处不加error方法，下面ajaxSetup有统一处理
         });
     });
 };
@@ -55,7 +55,7 @@ export const post = (url, jsonData) => {
  */
 $.ajaxSetup({
     contentType: "application/json",
-    timeout: 6000,
+    timeout: 10000,
     beforeSend: function (xmlHttpRequest) {
         debugger;
         // 请求前执行的方法

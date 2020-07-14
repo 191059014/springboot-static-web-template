@@ -1,0 +1,25 @@
+body {
+    width: 100%;
+    height: auto;
+}
+
+.home_header {
+    padding: 10px;
+    background-color: burlywood;
+    width: 100%;
+}
+
+.home_center_left{
+    background-color: beige;
+}
+
+.home_center_right{
+    background-color: blanchedalmond;
+}
+
+.home_footer {
+    clear: both;
+    padding: 10px;
+    background-color: brown;
+    width: 100%;
+}
